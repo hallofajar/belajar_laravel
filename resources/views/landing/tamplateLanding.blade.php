@@ -11,7 +11,10 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
   <link rel="icon" href="src/img/logo_tmg.png" />
-  <title>WEBGIS | Dusun Bongoskenti</title>
+  <title>SIDUS @isset($title)
+      |{{ $title }}
+    @endisset
+  </title>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
 
@@ -42,29 +45,6 @@
 </head>
 
 <body>
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.5/typeahead.bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.3.0/leaflet.markercluster.js"></script>
-  <script
-    src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.min.js"></script>
-  <script src="src/js/leaflet.groupedlayercontrol.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.6.2/proj4.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4leaflet/1.0.2/proj4leaflet.min.js"></script>
-  <script src="src/js/leaflet-measure.js"></script>
-
-  <script src="src/js/leaflet-sidebar.js"></script>
-  <script src="src/js/L.Control.Layers.Tree.js"></script>
-
-  <!-- geojson vt  -->
-  <!-- <script src="src/js/geojson-vt.js"></script>
-                    <script src="src/js/leaflet-geojson-vt.js"></script> -->
-
-  <script src="https://unpkg.com/leaflet.vectorgrid@latest/dist/Leaflet.VectorGrid.bundled.js"></script>
-  <script src="https://unpkg.com/leaflet.vectorgrid@latest/dist/Leaflet.VectorGrid.js"></script>
 
 
 
@@ -72,7 +52,7 @@
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="#"><img src="src/img/logo_tmg.png" alt="Logo" class="navbar-logo" /> <span
-          class="brand-title align-middle">WEBGIS Dusun Bongoskenti</span> </a>
+          class="brand-title align-middle">SIDUS Bongoskenti </span></a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -134,11 +114,46 @@
   @yield('content')
 
 
-	@yield('script')
 
-  <script src="src/geojson/PersilDesa.js"></script>
-  <script src="src/geojson/Bangunan.js"></script>
-  <script src="./src/js/app.js"></script>
+
+
+
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.5/typeahead.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.3.0/leaflet.markercluster.js"></script>
+  <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.min.js">
+  </script>
+  <script src="src/js/leaflet.groupedlayercontrol.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.6.2/proj4.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4leaflet/1.0.2/proj4leaflet.min.js"></script>
+  <script src="src/js/leaflet-measure.js"></script>
+
+  <script src="src/js/leaflet-sidebar.js"></script>
+  <script src="src/js/L.Control.Layers.Tree.js"></script>
+
+  <!-- geojson vt  -->
+  <!-- <script src="src/js/geojson-vt.js"></script>
+                    <script src="src/js/leaflet-geojson-vt.js"></script> -->
+
+  <script src="https://unpkg.com/leaflet.vectorgrid@latest/dist/Leaflet.VectorGrid.bundled.js"></script>
+  <script src="https://unpkg.com/leaflet.vectorgrid@latest/dist/Leaflet.VectorGrid.js"></script>
+
+<script>
+	// loading
+document.addEventListener("DOMContentLoaded", function (event) {
+  var element = document.getElementById("loading")
+  element.parentNode.removeChild(element)
+})
+
+</script>
+
+  @yield('script')
+
+
 
 </body>
 
