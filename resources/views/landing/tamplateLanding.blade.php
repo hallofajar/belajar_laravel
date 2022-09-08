@@ -11,9 +11,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
   <link rel="icon" href="src/img/logo_tmg.png" />
-  <title>SIDUS @isset($title)
-      |{{ $title }}
-    @endisset
+  <title>SIDUS {{$title ?? ''}}
   </title>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
@@ -67,7 +65,7 @@
               Info</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="https://gandulan-tmg.desacerdas.id/" target="_blank">SID</a>
+            <a class="nav-link" aria-current="page" href="{{url('Login')}}" target="_blank">Login</a>
           </li>
         </ul>
       </div>

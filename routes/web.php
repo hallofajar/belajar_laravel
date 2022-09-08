@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Umum\landing;
+use App\Http\Controllers\Auth\Registrasi;
+use App\Http\Controllers\Auth\Login;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,3 +18,14 @@ use App\Http\Controllers\Umum\landing;
 */
 
 Route::get('/', [landing::class, 'index']);
+
+// Auth Route
+Route::get('/Login', [Login::class, 'index']);
+
+Route::controller(Registrasi::class)->group(function () {
+	Route::get('/Register', 'index');
+	Route::post('/Register', 'store');
+});
+
+
+// end Admin Route
