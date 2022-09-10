@@ -18,8 +18,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="{{ url('argon') }}/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="{{ url('argon') }}/img/favicon.png">
+	<link rel="shortcut icon" type="image/png" href="https://surveigiz.humamzarodi.info/assets/favicon.ico" />
   <title>
     SISDUS
   </title>
@@ -35,7 +34,7 @@
   <link id="pagestyle" href="{{ url('argon') }}/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
 </head>
 
-<body class="bg-gray-300">
+<body class="">
   <div class="container position-sticky z-index-sticky top-0">
     <div class="row">
       <div class="col-12">
@@ -100,7 +99,7 @@
         <div class="container">
           <div class="row">
             <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
-              <div class="card shadow">
+              <div class="card card-plain">
                 <div class="card-header pb-0 text-start">
                   <h4 class="font-weight-bolder">Sign In</h4>
                   <p class="mb-0">Enter your email and password to sign in</p>
@@ -126,7 +125,7 @@
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                   <p class="mb-4 text-sm mx-auto">
                     Don't have an account?
-                    <a href="{{ url('Register') }}" class="text-primary text-gradient font-weight-bold">Sign up</a>
+                    <a href="{{ url('register') }}" class="text-primary text-gradient font-weight-bold">Sign up</a>
                   </p>
                 </div>
               </div>
@@ -135,7 +134,7 @@
               class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
               <div
                 class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden"
-                style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-ill.jpg');
+                style="background-image: url('https://source.unsplash.com/694x904/?village');
           background-size: cover;">
                 <span class="mask bg-gradient-primary opacity-6"></span>
                 <h4 class="mt-5 text-white font-weight-bolder position-relative">"Attention is the new currency"</h4>
@@ -148,6 +147,26 @@
       </div>
     </section>
   </main>
+{{-- toaster --}}
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="pesanToaster" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="..." class="rounded me-2" alt="...">
+      <strong class="me-auto" id="judulPesan">Bootstrap</strong>
+      <small>1 mins ago</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body" id="isiPesan">
+      Hello, world! This is a toast message.
+    </div>
+  </div>
+</div>
+
+
+
+
+
   <!--   Core JS Files   -->
   <script src="{{ url('argon') }}/js/core/popper.min.js"></script>
   <script src="{{ url('argon') }}/js/core/bootstrap.min.js"></script>
@@ -166,6 +185,16 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="{{ url('argon') }}/js/argon-dashboard.min.js?v=2.0.4"></script>
+
+	<script>
+// document.addEventListener('onload', function() {
+// 	var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+// 	var toastList = toastElList.map(function(toastEl) {
+// 		return new bootstrap.Toast(toastEl)
+// 	});
+// 	toastList.forEach(toast => toast.show());
+
+	</script>
 </body>
 
 </html>

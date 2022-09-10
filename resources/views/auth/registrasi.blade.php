@@ -18,8 +18,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="{{ url('argon') }}/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="{{ url('argon') }}/img/favicon.png">
+	<link rel="shortcut icon" type="image/png" href="https://surveigiz.humamzarodi.info/assets/favicon.ico" />
   <title>
     SISDUS
   </title>
@@ -89,8 +88,8 @@
   <!-- End Navbar -->
   <main class="main-content  mt-0">
     <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg"
-      style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signup-cover.jpg'); background-position: top;">
-      <span class="mask bg-gradient-dark opacity-6"></span>
+      style="background-image: url('https://source.unsplash.com/945x694/?village'); background-position: top;">
+      <span class="mask bg-gradient-dark opacity-7"></span>
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-5 text-center mx-auto">
@@ -109,7 +108,7 @@
               <h5>Form Daftar</h5>
             </div>
             <div class="card-body pt-0">
-              <form role="form" action="{{ url('Register') }}" method="post">
+              <form role="form" action="{{ url('register') }}" method="post">
                 @csrf
                 <div class="mb-3">
                   <input type="text" id="nama" name="nama" class="form-control @error('nama') is-invalid @enderror" placeholder="Nama Lengkap" value="{{ old('nama') }}">
@@ -145,7 +144,7 @@
                 <div class="text-center">
                   <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Sign up</button>
                 </div>
-                <p class="text-sm mt-3 mb-0">Already have an account? <a href="{{ url('Login') }}"
+                <p class="text-sm mt-3 mb-0">Already have an account? <a href="{{ url('login') }}"
                     class="text-dark font-weight-bolder">Sign in</a></p>
               </form>
             </div>

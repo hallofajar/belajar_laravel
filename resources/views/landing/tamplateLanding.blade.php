@@ -10,7 +10,7 @@
   <meta name="theme-color" content="#000000" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <link rel="icon" href="src/img/logo_tmg.png" />
+	<link rel="shortcut icon" type="image/png" href="https://surveigiz.humamzarodi.info/assets/favicon.ico" />
   <title>SIDUS {{$title ?? ''}}
   </title>
 
@@ -65,7 +65,7 @@
               Info</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{{url('Login')}}" target="_blank">Login</a>
+            <a class="nav-link" aria-current="page" href="{{url('login')}}" target="_blank">Login</a>
           </li>
         </ul>
       </div>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Umum\landing;
 use App\Http\Controllers\Auth\Registrasi;
 use App\Http\Controllers\Auth\Login;
-
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,12 +20,19 @@ use App\Http\Controllers\Auth\Login;
 Route::get('/', [landing::class, 'index']);
 
 // Auth Route
-Route::get('/Login', [Login::class, 'index']);
 
-Route::controller(Registrasi::class)->group(function () {
-	Route::get('/Register', 'index');
-	Route::post('/Register', 'store');
+Route::controller(Login::class)->group(function () {
+	Route::get('/login', 'index');
+	Route::post('/login',  'login');
 });
 
 
-// end Admin Route
+Route::controller(Registrasi::class)->group(function () {
+	Route::get('/register', 'index');
+	Route::post('/register', 'store');
+});
+
+// dashboard
+Route::get('/dashboard', function () {
+	return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
