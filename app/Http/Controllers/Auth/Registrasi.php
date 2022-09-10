@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class Registrasi extends Controller
@@ -15,17 +16,23 @@ class Registrasi extends Controller
 
 	public function store(Request $request)
 	{
-		// return $request->all();
 		// Validate the request...
 		$request->validate([
-			'fullname' => 'required|max:255',
-			'username' => 'required|unique:users|max:255',
+			'nama' => 'required|max:255',
 			'email' => 'email|required|unique:users|max:255',
+			'nomerhp' => 'required',
 			'password' => 'required|min:5',
 		]);
 
 
-		dd('registrasi berhasil');
 		// Store the user...
+		User::create([
+			'nama' => $request->nama,
+			'email' => $request->email,
+			'nomerhp' => $request->nomerhp,
+			'password' => bcrypt($request->password),
+		]);
+
+		return redirect('/Login')->with('success', 'Registrasi berhasil, silahkan login');
 	}
 }
