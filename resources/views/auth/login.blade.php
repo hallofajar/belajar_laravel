@@ -18,7 +18,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="shortcut icon" type="image/png" href="https://surveigiz.humamzarodi.info/assets/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="https://surveigiz.humamzarodi.info/assets/favicon.ico" />
   <title>
     SISDUS
   </title>
@@ -105,20 +105,21 @@
                   <p class="mb-0">Enter your email and password to sign in</p>
                 </div>
                 <div class="card-body">
-                  <form role="form">
+                  <form action="{{ url('login') }}" method="post">
+                    @csrf
                     <div class="mb-3">
-                      <input type="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email">
+                      <input type="email"  name="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email" autofocus required>
                     </div>
                     <div class="mb-3">
-                      <input type="email" class="form-control form-control-lg" placeholder="Password"
-                        aria-label="Password">
+                      <input type="password" name="password" class="form-control form-control-lg" placeholder="Password"
+                        aria-label="Password" required>
                     </div>
                     <div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" id="rememberMe">
                       <label class="form-check-label" for="rememberMe">Remember me</label>
                     </div>
                     <div class="text-center">
-                      <button type="button" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Sign in</button>
+                      <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Sign in</button>
                     </div>
                   </form>
                 </div>
@@ -147,24 +148,21 @@
       </div>
     </section>
   </main>
-{{-- toaster --}}
+  {{-- toaster --}}
 
-<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-  <div id="pesanToaster" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-      <img src="..." class="rounded me-2" alt="...">
-      <strong class="me-auto" id="judulPesan">Bootstrap</strong>
-      <small>1 mins ago</small>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body" id="isiPesan">
-      Hello, world! This is a toast message.
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="pesanToaster" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <img src="..." class="rounded me-2" alt="...">
+        <strong class="me-auto" id="judulPesan">Bootstrap</strong>
+        <small>1 mins ago</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body" id="isiPesan">
+
+      </div>
     </div>
   </div>
-</div>
-
-
-
 
 
   <!--   Core JS Files   -->
@@ -186,15 +184,17 @@
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="{{ url('argon') }}/js/argon-dashboard.min.js?v=2.0.4"></script>
 
-	<script>
-// document.addEventListener('onload', function() {
-// 	var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-// 	var toastList = toastElList.map(function(toastEl) {
-// 		return new bootstrap.Toast(toastEl)
-// 	});
-// 	toastList.forEach(toast => toast.show());
-
-	</script>
+  <script>
+		@if(session()->has('pesan'))
+    window.addEventListener('load', () => {
+        document.getElementById('judulPesan').innerHTML = 'Gagal';
+				document.getElementById('isiPesan').innerHTML = `{{session('pesan')}}`;
+				var pesanToaster = document.getElementById('pesanToaster');
+				var toast = new bootstrap.Toast(pesanToaster);
+				toast.show();
+    });
+		@endif
+  </script>
 </body>
 
 </html>

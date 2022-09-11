@@ -14,6 +14,8 @@ class Login extends Controller
 	}
 	public function login(Request $request)
 	{
+
+		// dd($request->all());
 		$credentials = $request->validate([
 			'email' => ['required', 'email'],
 			'password' => ['required'],
@@ -25,8 +27,9 @@ class Login extends Controller
 			return redirect()->intended('dashboard');
 		}
 
-		return back()->withErrors([
-			'status' => 'The provided credentials do not match our records.',
-		]);
+		return back()->with(
+			'pesan',
+			'The provided credentials do not match our records.',
+		);
 	}
 }
