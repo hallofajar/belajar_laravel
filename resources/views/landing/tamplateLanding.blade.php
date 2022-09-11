@@ -10,8 +10,8 @@
   <meta name="theme-color" content="#000000" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-	<link rel="shortcut icon" type="image/png" href="https://surveigiz.humamzarodi.info/assets/favicon.ico" />
-  <title>SIDUS {{$title ?? ''}}
+  <link rel="shortcut icon" type="image/png" href="https://surveigiz.humamzarodi.info/assets/favicon.ico" />
+  <title>SIDUS {{ $title ?? '' }}
   </title>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
@@ -64,9 +64,25 @@
                 class="fas fa-info-circle"></i>
               Info</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{{url('login')}}" target="_blank">Login</a>
-          </li>
+
+          @auth
+            <li class="nav-item">
+              {{-- dashboard --}}
+              <a class="nav-link" href="{{ url('dashboard') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url('logout') }}">
+								<i class="fas fa-sign-out-alt"></i>Logout</a>
+            </li>
+          @else
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="{{ url('login') }}" target="_blank">Login</a>
+            </li>
+          @endauth
+
+
+
         </ul>
       </div>
     </div>
@@ -96,7 +112,7 @@
                 GANDULAN
                 YANG AGRARIS, AGAMIS, BERBUDAYA, SEJAHTERA, AMAN </em></strong><strong><em>DENGAN PEMERINTAHAN YANG
                 BERSIH DAN BERWIBAWA SERTA GANDEM”</em></strong>.</p>
-          .<br /><br />
+          <br /><br />
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
@@ -116,7 +132,7 @@
 
 
 
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.5/typeahead.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
@@ -140,14 +156,13 @@
   <script src="https://unpkg.com/leaflet.vectorgrid@latest/dist/Leaflet.VectorGrid.bundled.js"></script>
   <script src="https://unpkg.com/leaflet.vectorgrid@latest/dist/Leaflet.VectorGrid.js"></script>
 
-<script>
-	// loading
-document.addEventListener("DOMContentLoaded", function (event) {
-  var element = document.getElementById("loading")
-  element.parentNode.removeChild(element)
-})
-
-</script>
+  <script>
+    // loading
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var element = document.getElementById("loading")
+      element.parentNode.removeChild(element)
+    })
+  </script>
 
   @yield('script')
 
