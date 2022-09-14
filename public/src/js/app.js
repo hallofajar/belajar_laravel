@@ -65,15 +65,77 @@ let markerClusters = new L.MarkerClusterGroup({
 /* Map Center */
 map = L.map("map", {
 	zoom: 12,
-	center: [-7.305817, 110.204826],
+	center: [-7.970418573831833, 110.26113574396696],
 	layers: [google_satelite],
 	zoomControl: false,
 	attributionControl: false,
 	// measureControl: true
 });
 
-map.options.minZoom = 9;
+map.options.minZoom = 15;
 map.options.maxZoom = 22;
+
+
+
+// Layer Peta
+
+/* GeoJSON Polygon Batas RT Dusun */
+map.createPane("BatasDusun")
+map.getPane("BatasDusun").style.zIndex = 500
+var BatasDusun = L.geoJson(null, {
+  /* Style polygon */
+  style: function (feature) {
+    //Fungsi style polygon
+    return {
+      fillColor: feature.properties.fillColor || "red", //Warna tengah polygon
+      fillOpacity: 0.1, //Transparansi tengah polygon
+      color: "white", //Warna garis tepi polygon
+      weight: 1, //Tebal garis tepi polygon
+      opacity: 1, //Transparansi garis tepi polygon
+      pane: "BatasDusun"
+    }
+  },
+  /* Highlight & Popup */
+  onEachFeature: function (feature, layer) {
+    // layer.on({
+    //   mouseover: function (e) {
+    //     //Fungsi ketika mouse berada di atas obyek
+    //     var layer = e.target //variabel layer
+    //     layer.setStyle({
+    //       //Highlight style
+    //       weight: 2, //Tebal garis tepi polygon
+    //       color: "#00FFFF", //Warna garis tepi polygon
+    //       opacity: 1, //Transparansi garis tepi polygon
+    //       fillColor: "cyan", //Warna tengah polygon
+    //       fillOpacity: 1 //Transparansi tengah polygon
+    //     })
+    //   },
+    //   mouseout: function (e) {
+    //     //Fungsi ketika mouse keluar dari area obyek
+    //     BatasDusun.resetStyle(e.target) //Mengembalikan style polygon ke style awal
+    //     map.closePopup() //Menutup popup
+    //   },
+    //   click: function (e) {
+    //     //Fungsi ketika obyek di-klik
+    //     BatasDusun.bindPopup(`Pola Ruang: <br> ${feature.properties.Keterangan}`) //Popup
+    //   }
+    // })
+  }
+})
+/* memanggil data geojson polygon */
+
+fetch("src/geojson/BatasDusun.geojson")
+  .then(response => response.json())
+  .then(data => {
+    BatasDusun.addData(data)
+    map.addLayer(BatasDusun)
+  })
+/* end GeoJSON Polygon Batas RT Dusun */
+
+
+
+
+
 
 map.createPane("pane_extent_maps");
 map.getPane("pane_extent_maps").style.zIndex = 1;
@@ -166,7 +228,7 @@ var measureControl = L.control
 // Menambahkan Skala
 L.control
 	.scale({
-		position: "bottomright",
+		position: "bottomleft",
 		imperial: false,
 		maxWidth: 300,
 	})
@@ -207,35 +269,35 @@ var overlaysTree = [
 		// selectAllCheckbox: 'Un/select all',
 		children: [
 			{
-				label: "<b>Tata Ruang</b>",
+				label: "<b>Batas Admin</b>",
 				// selectAllCheckbox: true,
 				children: [
 					{
-						label: "Pola Ruang",
-						layer: extent_maps,
+						label: "Batas RT",
+						layer: BatasDusun,
 					},
 				],
 			},
 			{
-				label: "<b>Data Pertanahan</b>",
+				label: "<b>Data Penduduk</b>",
 				// selectAllCheckbox: true,
 				children: [
 					{
-						label: "Persil Desa",
+						label: "Titik Rumah",
 						layer: extent_maps,
 					},
 				],
 			},
-			{
-				label: "<b>Administrasi</b>",
-				// selectAllCheckbox: true,
-				children: [
-					{
-						label: "Batas Dusun",
-						layer: extent_maps,
-					},
-				],
-			},
+			// {
+			// 	label: "<b>Administrasi</b>",
+			// 	// selectAllCheckbox: true,
+			// 	children: [
+			// 		{
+			// 			label: "Batas Dusun",
+			// 			layer: extent_maps,
+			// 		},
+			// 	],
+			// },
 
 		],
 	},

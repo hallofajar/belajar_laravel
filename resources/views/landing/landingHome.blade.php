@@ -198,8 +198,6 @@
 
 @section('script')
 
-<script src="src/geojson/PersilDesa.js"></script>
-<script src="src/geojson/Bangunan.js"></script>
 <script src="./src/js/app.js"></script>
 
 @endsection
