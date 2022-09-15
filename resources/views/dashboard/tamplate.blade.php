@@ -18,8 +18,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="{{ url('argon') }}/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="{{ url('argon') }}/img/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="https://surveigiz.humamzarodi.info/assets/favicon.ico" />
   <title>SISDUS</title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -64,15 +63,15 @@
           </a>
         </li>
          <li class="nav-item">
-          <a class="nav-link " href="{{url('')}}">
+          <a class="nav-link " href="{{url('dashboard/data-penduduk')}}">
             <div
               class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+							<i class="fa fa-table text-warning text-sm opacity-10" aria-hidden="true"></i>
             </div>
-            <span class="nav-link-text ms-1">Data Penduduk</span>
+            <span class="nav-link-text ms-1">Database Penduduk</span>
           </a>
         </li>
-       <li class="nav-item">
+       {{-- <li class="nav-item">
           <a class="nav-link " href="{{url('')}}">
             <div
               class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -80,7 +79,7 @@
             </div>
             <span class="nav-link-text ms-1">Eksport</span>
           </a>
-        </li>
+        </li> --}}
         {{-- <li class="nav-item">
           <a class="nav-link " href="./pages/virtual-reality.html">
             <div

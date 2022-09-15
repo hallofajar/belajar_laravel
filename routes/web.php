@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Umum\landing;
 use App\Http\Controllers\Auth\Registrasi;
 use App\Http\Controllers\Auth\Login;
+use App\Http\Controllers\Dashboard\DashboardPage;
+use App\Http\Controllers\Dashboard\DataPenduduk;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -35,6 +37,8 @@ Route::controller(Registrasi::class)->middleware('guest')->group(function () {
 Route::get('/logout', [Login::class, 'logout'])->middleware('auth');
 
 // dashboard
-Route::get('/dashboard', function () {
-	return view('dashboard.index');
-})->middleware('auth')->name('dashboard');
+Route::get('/dashboard', [DashboardPage::class, 'index'])->middleware('auth')->name('dashboard');
+
+Route::controller(DataPenduduk::class)->middleware('auth')->group(function () {
+	Route::get('/dashboard/data-penduduk', 'index');
+});
