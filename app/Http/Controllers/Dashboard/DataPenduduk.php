@@ -9,7 +9,6 @@ class DataPenduduk extends DashboardController
 {
 	public function index()
 	{
-		return view('dashboard.penduduk_index');
-		// dd($this->data);
+		return view('dashboard.penduduk_index',$this->data);
 	}
 }

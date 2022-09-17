@@ -9,6 +9,6 @@ class DashboardPage extends DashboardController
 {
 	public function index()
 	{
-		return view('dashboard.index');
+		return view('dashboard.index',$this->data);
 	}
 }
