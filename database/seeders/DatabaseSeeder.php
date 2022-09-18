@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\pendudukRumahModels;
 
 
 class DatabaseSeeder extends Seeder
@@ -24,5 +25,8 @@ class DatabaseSeeder extends Seeder
 			'created_at' => '2021-01-01 00:00:00',
 			'updated_at' => '2021-01-01 00:00:00'
 		]);
+
+		// tambah penduduk rumah models
+		pendudukRumahModels::factory()->count(50)->create();
 	}
 }

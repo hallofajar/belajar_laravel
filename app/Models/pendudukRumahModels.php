@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class pendudukRumahModels extends Model
 {
 	use HasFactory;
+	protected $table = 'penduduk_rumah';
+	protected $guarded = [
+		'idpendudukrumah',
+	];
 }

@@ -15,11 +15,13 @@ return new class extends Migration
 	{
 		Schema::create('penduduk_rumah', function (Blueprint $table) {
 			$table->id('idpendudukrumah')->autoIncrement();
-			$table->timestamps();
 			$table->string('nama_kk');
 			$table->string('noKK');
 			$table->integer('rt');
 			$table->integer('jumlah_anggota');
+			$table->string('koor_x')->nullable();
+			$table->string('koor_y')->nullable();
+			$table->timestamps();
 		});
 	}
 

@@ -13,7 +13,7 @@ class DashboardController extends Controller
 	{
 		$this->data = [
 			'title' => 'Dashboard',
-			'active' => 'dashboard',
+			'active' => 'Dashboard',
 		];
 	}
 
