@@ -9,6 +9,8 @@ class DataPenduduk extends DashboardController
 {
 	public function index()
 	{
+
+		$this->data['active'] = 'Data Penduduk';
 		return view('dashboard.penduduk_index',$this->data);
 	}
 }
