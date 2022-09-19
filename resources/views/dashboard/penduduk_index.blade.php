@@ -7,7 +7,7 @@
         <div class="card-header pb-0">
           <div class="d-flex">
             <h4 class="me-auto">Data Penduduk</h6>
-              <button id="tomboTambah" type="button" class="btn btn-primary btn-sm shadow-lg">Tambah KK</button>
+              <a href="{{ url('dashboard/data-penduduk/create') }}" class="btn btn-primary btn-sm shadow-lg">Tambah KK</a>
           </div>
         </div>
         <div class="card-body px-0 pt-0 pb-2">
@@ -65,19 +65,46 @@
       </div>
     </div>
   </div>
-
-
 @endsection
 
 
 {{-- section CSS --}}
 @section('css')
-
-
 @endsection
 
 
 {{-- section Javascript --}}
 @section('js')
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <i class="fa fa-bookmark\" aria-hidden="true"></i>
+        <strong class="me-auto" id="toaster-title"></strong>
+        {{-- <small>0 mins ago</small> --}}
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body" id="toaster-body">
+      </div>
+    </div>
+  </div>
 
+
+  <script>
+    const showToaster = (keterangan_, body_) => {
+      var toastermodal = document.querySelector('.toast');
+      var newToaster = new bootstrap.Toast(toastermodal);
+      document.querySelector('#toaster-title').innerHTML = keterangan_;
+      document.querySelector('#toaster-body').innerHTML = body_;
+      newToaster.show();
+    }
+
+
+		document.addEventListener('DOMContentLoaded', function() {
+			@if (session('success'))
+				showToaster('success', '{{ session('success') }}');
+			@endif
+		});
+
+
+  </script>
 @endsection

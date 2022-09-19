@@ -5,7 +5,7 @@ use App\Http\Controllers\Umum\landing;
 use App\Http\Controllers\Auth\Registrasi;
 use App\Http\Controllers\Auth\Login;
 use App\Http\Controllers\Dashboard\DashboardPage;
-use App\Http\Controllers\Dashboard\DataPenduduk;
+use App\Http\Controllers\Dashboard\DataPendudukKK;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -39,6 +39,8 @@ Route::get('/logout', [Login::class, 'logout'])->middleware('auth');
 // dashboard
 Route::get('/dashboard', [DashboardPage::class, 'index'])->middleware('auth')->name('dashboard');
 
-Route::controller(DataPenduduk::class)->middleware('auth')->group(function () {
-	Route::get('/dashboard/data-penduduk', 'index');
-});
+// Route::controller(DataPenduduk::class)->middleware('auth')->group(function () {
+// 	Route::get('/dashboard/data-penduduk', 'index');
+// });
+
+Route::resource('/dashboard/data-penduduk', DataPendudukKK::class);

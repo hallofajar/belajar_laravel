@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
 		]);
 
 		// tambah penduduk rumah models
-		pendudukRumahModels::factory()->count(50)->create();
-	}
+		// pendudukRumahModels::factory()->count(50)->create();
+	    $this->call(PendudukRumahTableSeeder::class);
+    }
 }
