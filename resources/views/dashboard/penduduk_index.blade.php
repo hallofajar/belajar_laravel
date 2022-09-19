@@ -66,99 +66,18 @@
     </div>
   </div>
 
-  {{-- Modal tambah dan edit --}}
-  <div class="modal  fade" id="modaltambah" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="modaltambahLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modaltambahLabel">Input KK Baru</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <form class="">
-          <div class="modal-body">
-            <p class="text-uppercase text-sm">Informasi KK</p>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="example-text-input" class="form-control-label">Nama KK</label>
-                  <input class="form-control" type="text" value="lucky.jesse">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="example-text-input" class="form-control-label">Nomer KK</label>
-                  <input class="form-control" type="email" value="jesse@example.com">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="example-text-input" class="form-control-label">Jumlah Anggota</label>
-                  <input class="form-control" type="text" value="Jesse">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="example-text-input" class="form-control-label">Last name</label>
-                  <input class="form-control" type="text" value="Lucky">
-                </div>
-              </div>
-            </div>
-            <p class="text-uppercase text-sm">Alamat</p>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="example-text-input" class="form-control-label">RT</label>
-                  <input class="form-control" type="text" value="Lucky">
-                </div>
-              </div>
-              <div class="col-md-6"></div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="example-text-input" class="form-control-label">Koordinat X</label>
-                  <input class="form-control" type="text" value="Lucky">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="example-text-input" class="form-control-label">Koordinat Y</label>
-                  <input class="form-control" type="text" value="Lucky">
-                </div>
-              </div>
-            </div>
-						<p class="text-sm">Geser Peta untuk mengubah koordinat</p>
-            <div class="row">
-              <div class="col">
-                <div class="map" id="map"></div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa fa-close"
-                aria-hidden="true"></i></button>
-            <button type="submit" class="btn btn-primary"><i class="fa fa-save" aria-hidden="true"></i></button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
+
 @endsection
 
 
 {{-- section CSS --}}
 @section('css')
+
+
 @endsection
 
 
 {{-- section Javascript --}}
 @section('js')
-  <script>
-    document.querySelector('#tomboTambah').addEventListener('click', function() {
-      let modal = new bootstrap.Modal('#modaltambah', {
-        keyboard: false
-      })
 
-      modal.show();
-    });
-  </script>
 @endsection

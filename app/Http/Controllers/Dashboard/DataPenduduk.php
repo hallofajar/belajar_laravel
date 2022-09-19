@@ -15,4 +15,9 @@ class DataPenduduk extends DashboardController
 		// dd($this->data['dataPenduduk']);
 		return view('dashboard.penduduk_index',$this->data);
 	}
+	public function tambah()
+	{
+		$this->data['active'] = 'Tambah Penduduk';
+		return view('dashboard.penduduk_tambah', $this->data);
+	}
 }
